@@ -71,9 +71,4 @@ labels = load_labels("//content/drive/My Drive/TensorFlow_model/tmp/retrain_tmp/
 
 In predict.ipynb notebook, as opposed to the training process, images are not required to be hosted or mounted in a Google drive. Instead we use a process similar to CAPTCHA: images to be tested are passed to the prediction model in a form of a list of base64 images through an API call. Then base64 images are turned back into image binaries.
 
-It is possible to change this behavior and have the image binaries mounted on the tensorflow server.
-
-
-
-
-
+It is possible to change this behavior and have the image binaries mounted on the tensorflow server. Then a similar code as 'predict.py' can be used to label images in a folder called 'unknow_images'
