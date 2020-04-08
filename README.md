@@ -6,14 +6,39 @@ There is *.py files to run directly from a computer, as well as their Colab Note
 
 The attached code is optimized for tensorflow 1.15 and may require an update to tensorflow 2.X
 
+# Installation on Ubuntu
+
+```python
+# Tensorflow==1.15 is not available for python 3.8 so we downgrade to python3.7
+# https://pypi.org/project/tensorflow/1.15.0/#files
+sudo apt-get install python3.7
+virtualenv -p /usr/bin/python3.7 venv
+source venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade setuptools
+python3 -m pip install --upgrade tensorflow==1.15
+python3 -m pip install --upgrade tensorflow_hub
+```
+
 # Training the model on a standalone computer
 
 The file retrain.py allows you to train your model directly on your computer
+
+Assuming the training images are located in your local folder `training_images`
+```bash
+time python3 retrain.py --image_dir ./training_images/
+```
+It can be very long ... Once trained, a graph model is created in the folder /tmp/retrain_tmp, in a form of a file .
 
 # Image recognition on a standalone computer
 
 The file predict.py allows you to perform ML image recognition on images stored in a 'unknow_images' folder. Each recognized images will be printed on the screen.
 
+```bash
+./predict.py
+```
+
+Having multiple and good GPUs boost the speed of image recognition
 
 # Training the model on Google Colabolatory (Colab Notebook)
 
